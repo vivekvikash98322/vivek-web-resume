@@ -21,7 +21,7 @@ export const Skills = () => {
   return (
     <section className="h-2/3 p-10" id="skills">
         <h1 className="text-4xl font-extrabold text-center">Skills</h1>
-      <div className="grid grid-cols-3 gap-5 pt-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5 pt-10">
         {Object.keys(skillDataState)?.map((data) => {
           return (
             <Card
