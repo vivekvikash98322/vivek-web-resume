@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Expirence } from "@/components/Expirence/Expirence";
 import { Skills } from "@/components/Skills/Skill";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
           </div>
           <div className="text-center grid lg:grid-cols-1 lg:gap-y-5 gap-y-4 mt-2">
             <span
-              className="font-extrabold text-3xl 
+              className="font-extrabold text-4xl 
             font-sans"
             >
               Hi
@@ -27,26 +28,30 @@ export default function Home() {
               <br />A Full stack developer
             </span>
             <div className="flex justify-center gap-x-5 flex-1 flex-shrink-0">
+              <a href={"https://www.linkedin.com/in/bibek-kumar-singh/"} rel="noopener noreferrer" target="_blank">
               <Image
                 src="/linkedin-in.svg"
                 alt="linkdin"
                 width="32"
                 height="32"
-              />
-              <Image src="/github.svg" alt="linkdin" width="32" height="32" />
+              /></a>
+               <a href={"https://github.com/vivekvikash98322"} rel="noopener noreferrer" target="_blank">
+              <Image src="/github.svg" alt="linkdin" width="32" height="32" /></a>
+              <a href={""}>
               <Image
                 src="/icons8-instagram.svg"
                 alt="linkdin"
                 width="35"
                 height="35"
               />
+              </a>
             </div>
           </div>
         </div>
+        <Skills />
         <div className="flex justify-center min-h-screen " id="expirence">
           <Expirence />
         </div>
-        <Skills />
       </div>
     </>
   );

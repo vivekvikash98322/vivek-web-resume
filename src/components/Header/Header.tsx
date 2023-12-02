@@ -112,13 +112,6 @@ const components: {
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
   {
-    title: "Projects",
-    href: "/docs/primitives/alert-dialog",
-    exclude: false,
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
     title: "Skills",
     href: "#skills",
     exclude: false,
@@ -131,6 +124,13 @@ const components: {
     exclude: false,
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Projects",
+    href: "/docs/primitives/alert-dialog",
+    exclude: false,
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Contact Me",

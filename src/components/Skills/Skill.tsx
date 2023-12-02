@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
+import { Skeleton } from "../ui/skeleton";
 
 export const Skills = () => {
   const [skillDataState, setSkillData] = useState<{ [key: string]: any[] }>({});
@@ -20,31 +21,46 @@ export const Skills = () => {
 
   return (
     <section className="h-2/3 p-10" id="skills">
-        <h1 className="text-4xl font-extrabold text-center">Skills</h1>
+      <h1 className="text-4xl font-extrabold text-center">Skills</h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5 pt-10">
-        {Object.keys(skillDataState)?.map((data) => {
-          return (
-            <Card
-              key={data}
-              className="hover:scale-110 shadow-[0_20px_60px_-15px_gray]"
-            >
-              <CardHeader>
-                <CardTitle className="text-center drop-shadow-2xl">
-                  {data}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {skillDataState[data]?.map((ele) => {
-                  return (
-                    <Badge key={ele?.skillName} className="mr-3 mb-2" variant={ele.primary ? 'outlinePrimary': 'default' }>
-                      {ele?.skillName}
-                    </Badge>
-                  );
-                })}
-              </CardContent>
-            </Card>
-          );
-        })}
+        {Object.keys(skillDataState).length > 0 ? (
+          Object.keys(skillDataState)?.map((data) => {
+            return (
+              <Card key={data} className="hover:scale-110  bg-cardPrimary]">
+                <CardHeader>
+                  <CardTitle className="text-center drop-shadow-2xl">
+                    {data}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {skillDataState[data]?.map((ele) => {
+                    return (
+                      <Badge
+                        key={ele?.skillName}
+                        className="mr-3 mb-2"
+                        variant={ele.primary ? "outlinePrimary" : "default"}
+                      >
+                        {ele?.skillName}
+                      </Badge>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+            );
+          })
+        ) : (
+          <>
+            <div>
+              <Skeleton className="w-[200px] h-[200px]" />
+            </div>
+            <div>
+              <Skeleton className="w-[200px] h-[200px]" />
+            </div>
+            <div>
+              <Skeleton className="w-[200px] h-[200px]" />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
