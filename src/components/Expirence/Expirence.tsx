@@ -1,15 +1,23 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import Image from "next/image";
+import { useRef } from "react";
+import { useScroll, motion } from "framer-motion";
 
 export const Expirence = () => {
+  const container  = useRef<HTMLDivElement>(null);
+  const {scrollXProgress, scrollYProgress} = useScroll({
+    target: container,
+    offset: ["0 1", "1.2 1"] 
+  })
+
   return (
-    <div className="flex  flex-col min-h-screen justify-center items-center">
+    <motion.div className="flex  flex-col min-h-screen justify-center items-center" ref={container} style={{scale: scrollYProgress, opacity: scrollYProgress}}>
       <h1 className="text-4xl font-extrabold text-center">Expirence</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-y-5 md:gap-x-5 lg:gap-x-5 p-10">
         {expirenceData?.map((data) => {
           return (
-            <Link href={"/jpmorganchase"} key={data.companyName}>
+            <Link href={`/expirence/${data.id}`} key={data.companyName}>
               <Card>
                 <CardHeader className="items-center border-b-[1px]">
                   {data?.image === "" ? (
@@ -45,12 +53,13 @@ export const Expirence = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const expirenceData = [
   {
+    id: 1,
     companyName: "JP Morgan Chase",
     current: true,
     position: "Full Stack developer",
@@ -62,17 +71,19 @@ const expirenceData = [
     text: "L&Q Private LTD",
   },
   {
+    id: 2,
     companyName: "E&Y",
     current: false,
     position: "Full Stack developer",
     breif: "Work as Full stack developer to delivery",
     from: "Aug-2019",
     to: "April-2021",
-    CoreSkills: "JAVA, Spring boot, Mongodb, Azure",
+    CoreSkills: "JAVA, Spring boot, Mongodb, Azure, Data JPA",
     image: "/ey.svg",
     text: "L&Q Private LTD",
   },
   {
+    id: 3,
     companyName: "L&Q Private LTD",
     current: false,
     position: "Full Stack developer",

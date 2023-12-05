@@ -5,12 +5,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Expirence } from "@/components/Expirence/Expirence";
 import { Skills } from "@/components/Skills/Skill";
 import Link from "next/link";
+import { useScroll, motion } from "framer-motion";
 
 export default function Home() {
   return (
     <>
       <div className="container scroll-smooth ease-in-out">
-        <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-10 min-h-screen justify-center items-center">
+        <motion.div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-10 min-h-screen justify-center items-center" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 5, delay: .5}}>
           <div>
             <Avatar className="lg:h-44 lg:w-44">
               <AvatarImage src="https://github.com/shadcn.png" />
@@ -47,7 +48,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
         <Skills />
         <div className="flex justify-center min-h-screen " id="expirence">
           <Expirence />
