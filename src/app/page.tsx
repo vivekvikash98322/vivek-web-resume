@@ -4,8 +4,7 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Expirence } from "@/components/Expirence/Expirence";
 import { Skills } from "@/components/Skills/Skill";
-import Link from "next/link";
-import { useScroll, motion } from "framer-motion";
+import {motion } from "framer-motion";
 
 export default function Home() {
   return (
