@@ -28,6 +28,7 @@ export const Header = () => {
     setSelected(title);
   };
 
+
   return (
     <>
       <header className="sticky z-50 self-center top-0 h-14 bg-[hsl(var(--background))]">
@@ -43,7 +44,9 @@ export const Header = () => {
                         <NavigationMenuLink
                           onSelect={() => handleSelect(data)}
                           active={selected === data.title}
+                          download={data.title === 'Resume' ? 'BibekKumarSinghResume.pdf' : ''}
                           className={navigationMenuTriggerStyle()}
+                          {...data?.props}
                         >
                           {data.title}
                         </NavigationMenuLink>
@@ -73,8 +76,8 @@ export const Header = () => {
           </button>
         </div>
         {openMenu && (
-          <nav className="top-0 z-50 w-full pt-10 mt-10 h-screen bg-[hsl(var(--background))] shadow-[5px_0px_13px_1px]">
-            <ul className="w-full grid grid-cols-1 text-center justify-center align-middle gap-y-10">
+          <nav className="top-0 z-50 w-full  h-screen bg-[hsl(var(--background))]">
+            <ul className="w-full pt-8 grid grid-cols-1 text-center justify-center align-middle gap-y-10">
               {components
                 ?.filter((ele) => !ele.exclude)
                 ?.map((data) => {
@@ -84,9 +87,9 @@ export const Header = () => {
                       className="font-extrabold text-3xl hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
                       onClick={() => setOpenMenu(false)}
                     >
-                      <Link href={data?.href} legacyBehavior passHref>
+                      <a href={data?.href} {...data?.props}> 
                         {data.title}
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}
@@ -103,6 +106,7 @@ const components: {
   href: string;
   description: string;
   exclude: boolean;
+  props: any;
 }[] = [
   {
     title: "Home",
@@ -110,6 +114,7 @@ const components: {
     exclude: false,
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    props: {}
   },
   {
     title: "Skills",
@@ -117,6 +122,7 @@ const components: {
     exclude: false,
     description:
       "For sighted users to preview content available behind a link.",
+      props: {}
   },
   {
     title: "Expirence",
@@ -124,13 +130,23 @@ const components: {
     exclude: false,
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      props: {}
   },
   {
     title: "Projects",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     exclude: false,
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
+      props: {}
+  },
+  {
+    title: "Resume",
+    href: "/BibekKumarSinghResume.pdf",
+    exclude: false,
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+      props: { target: '_blank', rel: "noreferrer"}
   },
   {
     title: "Contact Me",
@@ -138,5 +154,6 @@ const components: {
     exclude: false,
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      props: {}
   },
 ];
