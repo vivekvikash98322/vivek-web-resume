@@ -35,7 +35,7 @@ export const Expirence = () => {
                 </CardHeader>
 
                 <CardContent className="pt-2 pl-2 bg-slate-900">
-                  <div className="text-sm font-serif  text-left flex flex-col leading-7 text-gray-400">
+                  <div className="text-sm xl:text-xl font-serif  text-left flex flex-col leading-7 text-gray-400">
                     <span>
                       <b>Position : </b> {data.position}
                     </span>
@@ -90,7 +90,7 @@ const expirenceData = [
     breif: "Work as Full stack developer to delivery",
     from: "Jan-2017",
     to: "July-2019",
-    CoreSkills: "JAVA, Spring boot, Azure, MSSQL, Data JPA",
+    CoreSkills: "JAVA, Spring boot, Azure, MSSQL, Data JPA, NodeJS",
     image: "",
     text: "L&Q Private LTD",
   },

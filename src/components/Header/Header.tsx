@@ -14,10 +14,14 @@ import { cn } from "@/lib/utils";
 import { title } from "process";
 import { ContactMe } from "../ContactMe/Contactme";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const [selected, setSelected] = useState("Home");
   const [openMenu, setOpenMenu] = useState(false);
+  const path = usePathname();
+
+  console.log("Path : ", path)
 
   const handleSelect = (data: {
     title: string;
@@ -40,7 +44,7 @@ export const Header = () => {
                 ?.map((data) => {
                   return (
                     <NavigationMenuItem key={title}>
-                      <Link href={data?.href} legacyBehavior passHref>
+                      <Link href={path.includes("/expirence") ? "/" + data?.href : data.href} legacyBehavior passHref>
                         <NavigationMenuLink
                           onSelect={() => handleSelect(data)}
                           active={selected === data.title}
