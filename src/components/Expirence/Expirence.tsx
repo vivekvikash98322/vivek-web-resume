@@ -5,46 +5,42 @@ import { useRef } from "react";
 import { useScroll, motion } from "framer-motion";
 
 export const Expirence = () => {
-  const container  = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
 
   return (
     <div className="flex  flex-col min-h-screen justify-center items-center">
       <h1 className="text-4xl font-extrabold text-center">Expirence</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-y-5 md:gap-x-5 lg:gap-x-5 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-expirence lg:grid-cols-expirence gap-y-5 md:gap-x-10 lg:gap-x-10 p-5 w-[80vw] mt-20">
         {expirenceData?.map((data) => {
           return (
             <Link href={`/expirence/${data.id}`} key={data.companyName}>
-              <Card>
-                <CardHeader className="items-center border-b-[1px]">
-                  {data?.image === "" ? (
-                    <span className="text-2xl h-[42px] font-extrabold text-[#513319]">
-                      {data.text}
-                    </span>
-                  ) : (
-                    <Image
-                      src={data?.image}
-                      alt="L&Q Private LTD"
-                      width={200}
-                      height={50}
-                    />
-                  )}
-                </CardHeader>
+              <section>
+                <div className="flex flex-row justify-between">
+                  <span className="text-2xl font-bold">{data.companyName}</span>
+                  <span className="text-[#94A3B8]">
+                   {data?.from + " - " + data?.to}
+                  </span>
+                </div>
+                <span className="text-[#94A3B8] text-lg">
+                  {data.position}
+                </span>
 
-                <CardContent className="pt-2 pl-2 bg-slate-900">
-                  <div className="text-sm xl:text-xl font-serif  text-left flex flex-col leading-7 text-gray-400">
-                    <span>
-                      <b>Position : </b> {data.position}
-                    </span>
-                    <span>
-                      <b>From :</b> {data?.from + " - " + data?.to}
-                    </span>
-                    <span>
-                      <b>Skills Used : </b>{" "}
-                      <span className="text-justify">{data?.CoreSkills}</span>
-                    </span>
+                <div className="pt-2">
+                  <span className="text-xl font-light">
+                    {data.sortDescriptions}
+                  </span>
+                  <div className="grid grid-cols-4 mt-4 gap-y-2">
+                    {
+                      data.CoreSkills.split(",").map(skill => {
+                        return (
+                          <span key={skill} className="bg-blue-100  text-customSkills text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill}</span>
+
+                        )
+                      })
+                    }
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </section>
             </Link>
           );
         })}
@@ -65,6 +61,7 @@ const expirenceData = [
     to: "Present",
     image: "/jp-morgan-1.svg",
     text: "L&Q Private LTD",
+    sortDescriptions: "Built Microfront end based application, which will allow service agent to order new terminal and also manage terminal configuration."
   },
   {
     id: 2,
@@ -77,6 +74,7 @@ const expirenceData = [
     CoreSkills: "JAVA, Spring boot, Mongodb, Azure, Data JPA",
     image: "/ey.svg",
     text: "L&Q Private LTD",
+    sortDescriptions: "Built Microfront end based application, which will allow service agent to order new terminal and also manage terminal configuration."
   },
   {
     id: 3,
@@ -89,5 +87,6 @@ const expirenceData = [
     CoreSkills: "JAVA, Spring boot, Azure, MSSQL, Data JPA, NodeJS",
     image: "",
     text: "L&Q Private LTD",
+    sortDescriptions: "Built Microfront end based application, which will allow service agent to order new terminal and also manage terminal configuration."
   },
 ];

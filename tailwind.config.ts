@@ -19,12 +19,17 @@ module.exports = {
       boxShadow: {
         'custom': 'inset 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25)',
       },
+      gridTemplateColumns: {
+        expirence: "repeat(3, minmax(0, 2fr))"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        customSkills: "rgb(94 234 212/1)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
