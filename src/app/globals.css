@@ -74,3 +74,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.glow {
+  background: radial-gradient(800px at var(--x, 100px) var(--y, 100px), rgba(106, 133, 206, 0.15), transparent 80%);
+  height: 90vh;
+}

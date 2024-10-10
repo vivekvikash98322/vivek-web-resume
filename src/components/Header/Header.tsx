@@ -36,14 +36,14 @@ export const Header = () => {
   return (
     <>
       <header className="sticky z-50 self-center top-0 h-14 bg-[hsl(var(--background))]">
-        <div className="justify-end pt-2 hidden lg:flex xl:flex">
+        <div className="justify-center pt-2 hidden lg:flex xl:flex">
           <NavigationMenu className={`h-10 w-max px-10`}>
             <NavigationMenuList>
               {components
                 ?.filter((ele) => !ele.exclude)
                 ?.map((data) => {
                   return (
-                    <NavigationMenuItem key={title}>
+                    <NavigationMenuItem key={title} className="mx-10">
                       <Link href={path.includes("/expirence") ? "/" + data?.href : data.href} legacyBehavior passHref>
                         <NavigationMenuLink
                           onSelect={() => handleSelect(data)}

@@ -6,13 +6,9 @@ import { useScroll, motion } from "framer-motion";
 
 export const Expirence = () => {
   const container  = useRef<HTMLDivElement>(null);
-  const {scrollXProgress, scrollYProgress} = useScroll({
-    target: container,
-    offset: ["0 1", "1.2 1"] 
-  })
 
   return (
-    <motion.div className="flex  flex-col min-h-screen justify-center items-center" ref={container} style={{scale: scrollYProgress, opacity: scrollYProgress}}>
+    <div className="flex  flex-col min-h-screen justify-center items-center">
       <h1 className="text-4xl font-extrabold text-center">Expirence</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-y-5 md:gap-x-5 lg:gap-x-5 p-10">
         {expirenceData?.map((data) => {
@@ -53,7 +49,7 @@ export const Expirence = () => {
           );
         })}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

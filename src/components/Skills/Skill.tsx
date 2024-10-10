@@ -7,11 +7,6 @@ import { useScroll, motion } from "framer-motion";
 export const Skills = () => {
   const [skillDataState, setSkillData] = useState<{ [key: string]: any[] }>({});
   const container  = useRef<HTMLDivElement>(null);
-  const {scrollXProgress, scrollYProgress} = useScroll({
-    target: container,
-    offset: ["0 1", "1.3 1"] 
-  })
-
   useEffect(() => {
     let finalGroupedData: { [key: string]: any[] } = {};
 
@@ -26,7 +21,7 @@ export const Skills = () => {
   }, []);
 
   return (
-    <motion.section className="h-2/3 p-10" id="skills" ref={container} style={{scale: scrollYProgress, opacity: scrollYProgress}}>
+    <section className="h-2/3 p-10" id="skills" ref={container} >
       <h1 className="text-4xl font-extrabold text-center">Skills</h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5 pt-10">
         {Object.keys(skillDataState).length > 0 ? (
@@ -68,7 +63,7 @@ export const Skills = () => {
           </>
         )}
       </div>
-    </motion.section>
+    </section>
   );
 };
 
