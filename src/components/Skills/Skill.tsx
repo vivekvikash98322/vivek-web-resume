@@ -29,8 +29,7 @@ export const Skills = () => {
             return (
               <div key={data} className="h-full">
                 <span className="text-2xl font-bold">{data}</span>
-                <div className="grid grid-cols-[1fr_5px] gap-x-3">
-                  <div className={`grid grid-cols-3 gap-y-3 gap-x-5 mt-5`}>
+                  <div className={`grid grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-y-3 gap-x-5 mt-5  h-4/5 ${index + 1 !== Object.keys(skillDataState).length ? 'border-r-0 md:border-r-4 lg:border-r-4' : ''}`}>
                     {
                       skillDataState[data]?.map((skill) => {
                         return (
@@ -39,8 +38,6 @@ export const Skills = () => {
                       })
                     }
                   </div>
-                  <div className={`hidden lg:block  h-4/5 ${index + 1 !== Object.keys(skillDataState).length ? 'border-r-2' : ''}`}></div>
-                </div>
               </div>
 
             );
