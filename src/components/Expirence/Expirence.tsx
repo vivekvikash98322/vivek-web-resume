@@ -14,8 +14,8 @@ export const Expirence = () => {
         {expirenceData?.map((data) => {
           return (
             <Link href={`/expirence/${data.id}`} key={data.companyName}>
-              <section>
-                <div className="flex flex-row justify-between">
+              <section className="mb-5 flex flex-col justify-start text-start">
+                <div className="flex flex-col md:flex-row lg:flex-row justify-between">
                   <span className="text-2xl font-bold">{data.companyName}</span>
                   <span className="text-[#94A3B8]">
                    {data?.from + " - " + data?.to}
@@ -26,7 +26,7 @@ export const Expirence = () => {
                 </span>
 
                 <div className="pt-2">
-                  <span className="text-xl font-light">
+                  <span className="text-xl font-light text-start">
                     {data.sortDescriptions}
                   </span>
                   <div className="grid grid-cols-4 mt-4 gap-y-2">

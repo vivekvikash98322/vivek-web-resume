@@ -6,7 +6,7 @@ import { useScroll, motion } from "framer-motion";
 
 export const Skills = () => {
   const [skillDataState, setSkillData] = useState<{ [key: string]: any[] }>({});
-  const container  = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let finalGroupedData: { [key: string]: any[] } = {};
 
@@ -21,32 +21,28 @@ export const Skills = () => {
   }, []);
 
   return (
-    <section className="h-2/3 p-10" id="skills" ref={container} >
+    <section className="flex justify-center items-center min-h-screen  flex-col p-5 md:p-0 lg:p-0" id="skills" ref={container} >
       <h1 className="text-4xl font-extrabold text-center">Skills</h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5 pt-10">
         {Object.keys(skillDataState).length > 0 ? (
-          Object.keys(skillDataState)?.map((data) => {
+          Object.keys(skillDataState)?.map((data, index) => {
             return (
-              <Card key={data} className="hover:scale-110  bg-cardPrimary]">
-                <CardHeader>
-                  <CardTitle className="text-center drop-shadow-2xl">
-                    {data}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {skillDataState[data]?.map((ele) => {
-                    return (
-                      <Badge
-                        key={ele?.skillName}
-                        className="mr-3 mb-2"
-                        variant={ele.primary ? "outlinePrimary" : "default"}
-                      >
-                        {ele?.skillName}
-                      </Badge>
-                    );
-                  })}
-                </CardContent>
-              </Card>
+              <div key={data} className="h-full">
+                <span className="text-2xl font-bold">{data}</span>
+                <div className="grid grid-cols-[1fr_5px] gap-x-3">
+                  <div className={`grid grid-cols-3 gap-y-3 gap-x-5 mt-5`}>
+                    {
+                      skillDataState[data]?.map((skill) => {
+                        return (
+                          <span key={data} className="bg-blue-100  text-customSkills text-base font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill.skillName}</span>
+                        )
+                      })
+                    }
+                  </div>
+                  <div className={`hidden lg:block  h-4/5 ${index + 1 !== Object.keys(skillDataState).length ? 'border-r-2' : ''}`}></div>
+                </div>
+              </div>
+
             );
           })
         ) : (
@@ -141,12 +137,22 @@ const skillsData = [
   {
     skillName: "JUnit",
     primary: false,
-    section: "Other",
+    section: "Backend",
   },
   {
     skillName: "Jest",
     primary: false,
-    section: "Other",
+    section: "Frontend",
+  },
+  {
+    skillName: "HTML",
+    primary: false,
+    section: "Frontend",
+  },
+  {
+    skillName: "CSS",
+    primary: false,
+    section: "Frontend",
   },
   {
     skillName: "Data Structure",
@@ -170,6 +176,16 @@ const skillsData = [
   },
   {
     skillName: "Cypress",
+    primary: false,
+    section: "Other",
+  },
+  {
+    skillName: "Git",
+    primary: false,
+    section: "Other",
+  },
+  {
+    skillName: "Splunk",
     primary: false,
     section: "Other",
   },
