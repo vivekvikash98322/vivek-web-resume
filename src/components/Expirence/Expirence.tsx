@@ -8,9 +8,9 @@ export const Expirence = () => {
   const container = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex  flex-col min-h-screen justify-center items-center">
+    <div className="flex  flex-col min-h-screen justify-center items-center mt-2">
       <h1 className="text-4xl font-extrabold text-center">Expirence</h1>
-      <div className="grid grid-cols-1 md:grid-cols-expirence lg:grid-cols-expirence gap-y-5 md:gap-x-10 lg:gap-x-10 p-5 w-[80vw] mt-20">
+      <div className="grid grid-cols-1 xl:grid-cols-expirence gap-y-5 md:gap-x-10 lg:gap-x-10 p-5 w-[80vw] mt-20">
         {expirenceData?.map((data) => {
           return (
             <Link href={`/expirence/${data.id}`} key={data.companyName}>
@@ -29,11 +29,11 @@ export const Expirence = () => {
                   <span className="text-xl font-light text-start">
                     {data.sortDescriptions}
                   </span>
-                  <div className="grid grid-cols-4 mt-4 gap-y-2">
+                  <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-col-4 mt-4 gap-y-2">
                     {
                       data.CoreSkills.split(",").map(skill => {
                         return (
-                          <span key={skill} className="bg-blue-100  text-customSkills text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill}</span>
+                          <span key={skill} className="bg-blue-100  text-customSkills text-xs font-normal  xl:font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill}</span>
 
                         )
                       })

@@ -21,38 +21,37 @@ export const Skills = () => {
   }, []);
 
   return (
-    <section className="flex justify-center items-center min-h-screen  flex-col p-5 md:p-0 lg:p-0" id="skills" ref={container} >
+    <section className="flex justify-center items-center min-h-screen  flex-col p-5 md:p-0 lg:p-0 mb-3" id="skills" ref={container} >
       <h1 className="text-4xl font-extrabold text-center">Skills</h1>
-      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+      <div className="grid sm:grid-cols-1 xl:grid-cols-3 gap-5 pt-10">
         {Object.keys(skillDataState).length > 0 ? (
           Object.keys(skillDataState)?.map((data, index) => {
             return (
-              <div key={data} className="h-full">
+              <div key={data} className="h-full mb-5">
                 <span className="text-2xl font-bold">{data}</span>
-                  <div className={`grid grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-y-3 gap-x-5 mt-5  h-4/5 ${index + 1 !== Object.keys(skillDataState).length ? 'border-r-0 md:border-r-4 lg:border-r-4' : ''}`}>
-                    {
-                      skillDataState[data]?.map((skill) => {
-                        return (
-                          <span key={data} className="bg-blue-100  text-customSkills text-base font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill.skillName}</span>
-                        )
-                      })
-                    }
-                  </div>
+                <div className={`grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 gap-y-3 gap-x-3 lg:gap-x-4 mt-5  h-4/5 ${index + 1 !== Object.keys(skillDataState).length ? 'border-r-0  xl:border-r-3' : ''}`}>
+                  {
+                    skillDataState[data]?.map((skill) => {
+                      return (
+                        <span key={data} className="bg-blue-100  text-customSkills text-base font-normal md:font-medium lg:font-normal me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 border border-customSkills">{skill.skillName}</span>
+                      )
+                    })
+                  }
+                </div>
               </div>
 
             );
           })
         ) : (
           <>
-            <div>
-              <Skeleton className="w-[200px] h-[200px]" />
-            </div>
-            <div>
-              <Skeleton className="w-[200px] h-[200px]" />
-            </div>
-            <div>
-              <Skeleton className="w-[200px] h-[200px]" />
-            </div>
+
+            {
+              [1, 2, 3].map(ele => {
+                return (<div>
+                  <Skeleton className="w-[300px] h-[300px]" />
+                </div>)
+              })
+            }
           </>
         )}
       </div>
@@ -183,6 +182,11 @@ const skillsData = [
   },
   {
     skillName: "Splunk",
+    primary: false,
+    section: "Other",
+  },
+  {
+    skillName: "Terraform",
     primary: false,
     section: "Other",
   },
