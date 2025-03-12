@@ -48,7 +48,7 @@ export const Skills = () => {
             {
               [1, 2, 3].map(ele => {
                 return (<div>
-                  <Skeleton className="w-[300px] h-[300px]" />
+                  <Skeleton key={ele} className="w-[300px] h-[300px]" />
                 </div>)
               })
             }
