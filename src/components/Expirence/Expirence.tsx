@@ -8,12 +8,12 @@ export const Expirence = () => {
   const container = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex  flex-col min-h-screen justify-center items-center mt-2">
+    <div className="flex flex-col item-center min-h-screen justify-center items-center mt-2" id="expirence">
       <h1 className="text-4xl font-extrabold text-center">Expirence</h1>
-      <div className="grid grid-cols-1 xl:grid-cols-expirence gap-y-5 md:gap-x-10 lg:gap-x-10 p-5 w-[80vw] mt-20">
+      <div className="grid grid-cols-1 xl:grid-cols-expirence gap-y-5 md:gap-x-10 lg:gap-x-10 p-5 h-4/5 w-[85vw] mt-20">
         {expirenceData?.map((data) => {
           return (
-            <Link href={`/expirence/${data.id}`} key={data.companyName}>
+            <Link href={`/expirence/${data.id}`} key={data.companyName}  className="h-fit">
               <section className="mb-5 flex flex-col justify-start text-start">
                 <div className="flex flex-col md:flex-row lg:flex-row justify-between">
                   <span className="text-2xl font-bold">{data.companyName}</span>

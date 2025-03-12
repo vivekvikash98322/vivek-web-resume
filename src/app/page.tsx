@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <div className=" scroll-smooth ease-in-out flex justify-center text-center flex-col">
-      <div ref={targetRef} className="pointer-events-none inset-0 z-30 transition duration-300 lg:absolute glow"></div>
+        <div ref={targetRef} className="pointer-events-none inset-0 z-30 transition duration-300 lg:absolute glow"></div>
         <motion.div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-10 min-h-screen justify-center items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 5, delay: .5 }}>
           <div>
             <Avatar className="lg:h-44 lg:w-44">
@@ -66,9 +66,13 @@ export default function Home() {
             </div>
           </div>
         </motion.div>
-        <Skills />
-        <div className="flex justify-center min-h-screen " id="expirence">
+        <div className="flex flex-col gap-y-10">
+        <div className="flex min-h-screen">
+          <Skills />
+        </div>
+        <div className=" min-h-screen">
           <Expirence />
+        </div>
         </div>
       </div>
     </>
